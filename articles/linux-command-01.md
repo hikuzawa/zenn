@@ -4,7 +4,6 @@ emoji: "⌨️"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Linux","tech"]
 published: false
-published_at:
 ---
 
 # コマンド一覧
