@@ -68,6 +68,9 @@ bash -v, bash -x
 UDP、TCP、およびICMPの違いや主な機能
 IPv4とIPv6の主な違い
 IPv6の基本的な機能
+
+---
+
 1.07.2 基本的なネットワーク構成
 重要度	4
 概要	ホスト上の設定を参照、変更、確認できる。
@@ -81,6 +84,19 @@ ip addr
 デフォルトルートの設定
 ip route, route
 
+### /etc/sysconfig/network
+にホスト名やネットワーク機器の有効、無効、デフォルトゲートウェイの設定などを記述
+イメージ：家の「配電盤」
+このファイルを家の配電盤だと想像してみてください。
+/etc/sysconfig/network（このファイル）
+家全体の電気をON/OFFするメインのブレーカーです。
+「そもそも、この家は電気を使いますか？（NETWORKING=yes）」といった、最も基本的なことを決めます。
+また、家の住所（HOSTNAME=mycomputer）を登録する役割も担います。
+/etc/sysconfig/network-scripts/ifcfg-eth0など
+こちらはリビングの照明や、寝室のエアコンの個別のスイッチです。
+個別の機器（ネットワークカード）のIPアドレスなどを設定します。
+メインのブレーカーが落ちていれば、個別のスイッチをいくら押しても電気はつきません。それと同じで、networkファイルで「ネットワークを使わない」と設定されていれば、個別の設定がどうであれネットワークには繋がりません。
+但しCentOS7以降の新しいシステムでは、ネットワークの管理の方法が変わり、NetworkManagerやsystemd-networkdといった新しい仕組みが使われている。そもそも最近のOSにはこのファイルの仕組みがなかったりもする。
 ---
 
 1.07.3 基本的なネットワークの問題解決
@@ -94,6 +110,9 @@ traceroute, traceroute6, tracepath, tracepath6
 ifconfig, ifup, ifdown, hostname
 ルーティングテーブルを変更、参照、設定し、不適切なデフォルトルート設定を手作業で訂正する。
 ip route, route
+
+### whoisコマンド
+ドメインの登録者の情報を問い合わせるときに使う
 
 ---
 
@@ -124,6 +143,9 @@ groupadd, groupdel, groupmod
 パスワード/グループデータベースにあるユーザ/グループ情報を管理する。これには複数グループの所属も含む。
 passwd, /etc/passwd, /etc/shadow, /etc/group
 getent, id
+
+### getentコマンド
+getentコマンドは/etc/nsswitch.confに記載されている、名前解決の順番に問い合わせを行うコマンド
 
 ---
 
@@ -175,6 +197,10 @@ chronyd, chronyc, chrony.conf
 pool.ntp.org
 ntpq コマンドについて知っている。
 
+### date,hwclockコマンド
+hwclock ハードウェアクロック コンピュータに内蔵された時刻。電源のOFFの状態でも動作
+date システムクロック Linuxカーネルが持つ時刻。システム起動時にハードウェアクロックの値が設定される。システムのイベントの時刻として使用される。
+
 ---
 
 1.09.2 システムのログ
@@ -194,6 +220,9 @@ logger, systemd-cat
 journalctl, /etc/systemd/journald.conf, /var/log/journal/
 logrotateを設定する。
 logrotate, /etc/logrotate.conf, /etc/logrotate.d/, /var/log/
+
+### loggerコマンド
+/etc/rsyslog.confのログに関する設定内容を手動で確認できる
 
 ---
 
@@ -230,6 +259,9 @@ su, sudo, /etc/sudoers
 自動ログアウトの設定をする。
 TMOUT
 
+### chageコマンド
+オプション-lはroot以外のユーザが実行できる
+
 ---
 
 1.10.2 ホストのセキュリティ設定
@@ -245,6 +277,9 @@ systemctl, /etc/init.d/
 chkconfig, service
 Firewallの概要を知っている。
 iptables, firewalld
+
+### スーパーサーバについて
+
 
 ---
 
