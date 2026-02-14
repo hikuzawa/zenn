@@ -1,5 +1,5 @@
 ---
-title: "RasberyPi4でAndroid Automotive OSを構築する"
+title: "RasberyPi4でAndroidAutomotiveOSを構築する"
 emoji: "⛳"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["ガジェット"]
