@@ -18,7 +18,7 @@ published: false
 - OS   | Windows
 
 ## WSL(Ubuntu20.02)
-- メモリスワップ 60G
+- メモリスワップ 60GB
 
 ## WSL環境を作る
 ### WSLインストール
